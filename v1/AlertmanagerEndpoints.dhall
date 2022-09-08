@@ -1,11 +1,11 @@
-let IntOrString = (../imports.dhall).Kubernetes.IntOrString
+let NatOrString = (../imports.dhall).Kubernetes.NatOrString
 
 let TLSConfig = ./TLSConfig.dhall
 
 in  { Type =
         { namespace : Text
         , name : Text
-        , port : IntOrString
+        , port : NatOrString
         , scheme : Optional Text
         , pathPrefix : Optional Text
         , tlsConfig : Optional TLSConfig.Type

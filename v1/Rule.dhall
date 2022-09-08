@@ -2,13 +2,13 @@ let imports = ../imports.dhall
 
 let Map = imports.Prelude.Map.Type
 
-let IntOrString = imports.Kubernetes.IntOrString
+let NatOrString = imports.Kubernetes.NatOrString
 
 let Rule =
       { Type =
           { record : Optional Text
           , alert : Optional Text
-          , expr : IntOrString
+          , expr : NatOrString
           , for : Optional Text
           , labels : Optional (Map Text Text)
           , annotations : Optional (Map Text Text)
@@ -22,6 +22,6 @@ let Rule =
         }
       }
 
-let test = Rule::{ expr = IntOrString.String "example" }
+let test = Rule::{ expr = NatOrString.String "example" }
 
 in  Rule

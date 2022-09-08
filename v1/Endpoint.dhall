@@ -47,7 +47,7 @@ let common =
 
 let Port = Common ⩓ { port : Text }
 
-let TargetPort = Common ⩓ { targetPort : Kubernetes.IntOrString }
+let TargetPort = Common ⩓ { targetPort : Kubernetes.NatOrString }
 
 let Endpoint =
       { Union = < Port : Port | TargetPort : TargetPort >
@@ -60,7 +60,7 @@ let test =
       , targetPort =
           Endpoint.Union.TargetPort
             Endpoint.TargetPort::{
-            , targetPort = Kubernetes.IntOrString.Int +8080
+            , targetPort = Kubernetes.NatOrString.Nat 8080
             }
       }
 

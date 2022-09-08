@@ -8,7 +8,7 @@ let RelabelConfig = (./RelabelConfig.dhall).Type
 
 in  { Type =
         { port : Optional Text
-        , targetPort : Optional Kubernetes.IntOrString
+        , targetPort : Optional Kubernetes.NatOrString
         , path : Optional Text
         , scheme : Optional Text
         , params : Optional (Prelude.Map.Type Text Text)
@@ -22,7 +22,7 @@ in  { Type =
         }
     , default =
       { port = None Text
-      , targetPort = None Kubernetes.IntOrString
+      , targetPort = None Kubernetes.NatOrString
       , path = None Text
       , scheme = None Text
       , params = None (Prelude.Map.Type Text Text)
